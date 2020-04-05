@@ -193,7 +193,6 @@
                                                     </div>
                                                 </li>
                                             ";
-			echo userIdHasPermission($id, "show_admin_nav", $pdo);
                                             /*if(userIdHasPermission($id, "show_admin_nav", $pdo)){
             $content.= "                        <li class='nav-item dropdown'>
                                                     <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuAdmin' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Admin</a>
