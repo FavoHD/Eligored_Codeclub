@@ -16,6 +16,7 @@ function init(){
 
 	map = new Map();
 
+	map.getWorldId();
 	map.update();
 
 	is_playing = true;
@@ -52,7 +53,8 @@ class Map {
     constructor() {
         this.shiftX = 0;
         this.shiftY = 0;
-		this.map = null;
+		this.world_id;
+		this.map;
     }
 
     draw() {
@@ -61,43 +63,46 @@ class Map {
         }
     }
 
-	update() {
+	getWorldId() {
 		var xhr_getWorldId = new XMLHttpRequest();
 		xhr_getWorldId.open("POST", "getWorldId.php");
 		xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
 		xhr_getWorldId.send();
-		xhr_getWorldId.onreadystatechange = function () {
+		xhr_getWorldId.onreadystatechange = () => {
 	   		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
 	     		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
 
 				if ((world_id_obj.status) == "success" && (world_id_obj.world_id)) {
-					var world_id = world_id_obj.world_id;
-					const toSend = {
-						world_id : world_id,
-					};
-					var jsonString = JSON.stringify(toSend);
-
-					var xhr_getWorldById = new XMLHttpRequest();
-					xhr_getWorldById.open("POST", "getWorldById.php");
-					xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
-					xhr_getWorldById.send(jsonString);
-					xhr_getWorldById.onreadystatechange = function () {
-						if (xhr_getWorldById.readyState == 4 && xhr_getWorldById.status == 200) {
-							var world_obj = JSON.parse(xhr_getWorldById.responseText);
-
-							if ((world_obj.status == "success") && (world_obj.world)) {
-								this.map = world_obj.world;
-								console.log(this.map);
-							} else {
-								console.log("error");
-							}
-						}
-					}
+					this.world_id = world_id_obj.world_id;
 				} else {
 					console.log("error");
 				}
 	    	}
 	   	}
+	}
+
+	update() {
+		const toSend = {
+			world_id : this.world_id,
+		};
+		var jsonString = JSON.stringify(toSend);
+
+		var xhr_getWorldById = new XMLHttpRequest();
+		xhr_getWorldById.open("POST", "getWorldById.php");
+		xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
+		xhr_getWorldById.send(jsonString);
+		xhr_getWorldById.onreadystatechange = () => {
+			if (xhr_getWorldById.readyState == 4 && xhr_getWorldById.status == 200) {
+				var world_obj = JSON.parse(xhr_getWorldById.responseText);
+
+				if ((world_obj.status == "success") && (world_obj.world)) {
+					this.map = world_obj.world;
+				} else {
+					console.log("error");
+				}
+	    	}
+	   	}
+		console.log(this.map);
 	}
 }
 
