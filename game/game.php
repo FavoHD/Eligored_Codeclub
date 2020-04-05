@@ -22,7 +22,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=0">
-		<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="/Eligored/favicon.ico">
 		<title>Eligored</title>
 
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
