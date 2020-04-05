@@ -41,6 +41,7 @@ function init(){
 
 				if (obj.status == "success") {
 					world = obj.world;
+					console.log(world);
 				}
 			}
     	}
