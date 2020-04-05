@@ -175,7 +175,6 @@
                 redirect("index.php");
             }
 
-
             $content = " ";
 
             $content.= "<div class='site d-flex w-100 h-100 p-3 mx-auto flex-column'>
@@ -194,7 +193,8 @@
                                                     </div>
                                                 </li>
                                             ";
-                                            if(userIdHasPermission($id, "show_admin_nav", $pdo)){
+			echo userIdHasPermission($id, "show_admin_nav", $pdo);
+                                            /*if(userIdHasPermission($id, "show_admin_nav", $pdo)){
             $content.= "                        <li class='nav-item dropdown'>
                                                     <a class='nav-link dropdown-toggle' href='#' id='navbarDropdownMenuAdmin' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Admin</a>
                                                     <div class='dropdown-menu' aria-labelledby='navbarDropdownMenuAdmin'>
@@ -204,7 +204,8 @@
                                                     </div>
                                                 </li>
                                                 ";
-                                            }
+                                            }*/
+			echo "1";
             $content.= "                        <li><a class='nav-link' href='index.php?logout=1'>Logout</a></li>
                                             ";
                                         }else{
