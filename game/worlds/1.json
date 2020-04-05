@@ -6,8 +6,8 @@
         {
             "__comment": "id aus Datebank",
             "id": "3",
-            "xPos": "x",
-            "yPos": "y",
+            "xPos": "750",
+            "yPos": "380",
             "inventory_slot": []
         }
     ],

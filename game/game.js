@@ -31,16 +31,23 @@ function init(){
     	}
    	}
 
+
+
+	var toSend = {
+		world_id : world_id,
+	};
+
+	var jsonString = JSON.stringify(toSend);
 	var xhr = new XMLHttpRequest();
 	xhr.open("POST", "getWorldById.php");
 	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send(JSON.stringify({world_id : world_id}));
+	xhr.send(jsonString);
 	xhr.onreadystatechange = function () {
    		if (xhr.readyState == 4 && xhr.status == 200) {
      		var obj = JSON.parse(xhr.responseText);
 
 			if (obj.status == "success") {
-				var world = parseInt(obj.world);
+				var world = obj.world;
 				console.log(world);
 			}
     	}
@@ -227,12 +234,12 @@ class Player extends Entity {
         var xPos = this.xPos;
         var yPos = this.yPos;
 
-        const toSend = {
+        var toSend = {
             xPos : xPos,
             yPos: yPos,
         };
 
-        const jsonString = JSON.stringify(toSend);
+        var jsonString = JSON.stringify(toSend);
         var xhr = new XMLHttpRequest();
         xhr.open("POST", "saveUserData.php");
         xhr.setRequestHeader("Content-Type", "application/json");

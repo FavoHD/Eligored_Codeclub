@@ -12,10 +12,11 @@
         $world_id = $object["world_id"];
 
 		$world_json = file_get_contents("worlds/"+$world_id+".json");
-		$world_object = json_decode($world_json, true);
 
+		$world_object = json_decode($world_json);
+		echo $world_id;
 
-
+/*
 		class retObj {
 	    	var $status;
 	    	var $value;
@@ -29,7 +30,7 @@
 		if (isset($world_object)) {
 			$toSend = array(
 		    	'status' => 'success',
-		        'world_id' => $world_object
+		        'world' => $world_object
 			);
 
 	    	echo json_encode($toSend);
@@ -46,7 +47,7 @@
 		);
 
 		echo json_encode($toSend);
-
+*/
     }
 
 ?>
