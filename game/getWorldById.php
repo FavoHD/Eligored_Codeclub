@@ -2,7 +2,7 @@
     session_start();
     include "../phpconnect.php";
 
-	/*class retObj {
+	class retObj {
 		var $status;
 		var $value;
 
@@ -10,12 +10,11 @@
 			$this->status = $st;
 			$this->value = $v;
 		}
-	}*/
+	}
 
 	$requestPayload = file_get_contents('php://input');
     $object = json_decode($requestPayload, true);
-	var_dump($object);
-	/*
+
 	if ((isset($_SESSION["id"]) && ($_SESSION["id"]>0))) {
         $user_id = $_SESSION["id"];
         $world_id = $object["world_id"];
@@ -43,6 +42,6 @@
 		);
 
 		echo json_encode($toSend);
-    }*/
+    }
 
 ?>

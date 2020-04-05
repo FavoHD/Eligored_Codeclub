@@ -25,24 +25,20 @@ function init(){
      		var obj = JSON.parse(xhr.responseText);
 
 			if (obj.status == "success") {
-				world_id = parseInt(obj.world_id);
-				console.log(world_id);
+				world_id = obj.world_id;
+
+				const toSend = {
+					world_id : world_id,
+				};
+
+				var jsonString = JSON.stringify(toSend);
+				var xhr2 = new XMLHttpRequest();
+				xhr2.open("POST", "getWorldById.php");
+				xhr2.setRequestHeader("Content-Type", "application/json");
+				xhr2.send(jsonString);
 			}
     	}
    	}
-
-
-
-	console.log(world_id);
-	const world_id = {
-		world_id : world_id,
-	};
-
-	var jsonString = JSON.stringify(toSend);
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "getWorldById.php");
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send(jsonString);
 
 
 
