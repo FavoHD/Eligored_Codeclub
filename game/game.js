@@ -21,8 +21,8 @@ function init(){
 	xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
 	xhr_getWorldId.send();
 	xhr_getWorldId.onreadystatechange = function () {
-   		if (xhr.readyState == 4 && xhr.status == 200) {
-     		var obj = JSON.parse(xhr.responseText);
+   		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
+     		var obj = JSON.parse(xhr_getWorldId.responseText);
 
 			if (obj.status == "success") {
 				world_id = obj.world_id;
