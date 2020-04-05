@@ -45,6 +45,7 @@
                 echo $string;
             }
 
+
             if(isset($_GET["register"])) {
                 $error = false;
                 $email = $_POST["email"];
