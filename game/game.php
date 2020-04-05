@@ -58,11 +58,10 @@
                                 Wird nicht von ihrem Browser unterstützt
                             </canvas>
                         </div>
+						<script type='text/javascript' src='game.js'></script>
                         ";
 
             echo $content;
-
-			<script type="text/javascript" src="game.js"></script>
         ?>
     </body>
 </html>
