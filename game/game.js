@@ -21,6 +21,16 @@ function init(){
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send();
 
+	xhr.onreadystatechange = function () {
+   		if (xhr.readyState == 4 && xhr.status == 200) {
+     		var obj = JSON.parse(xhr.responseText);
+			if (!obj.status == "fail") {
+				const world_id = parseInt(obj.world_id);
+				console.log(world_id);
+			}
+    	}
+   	}
+
 	is_playing = true;
 
     map_object = [];
