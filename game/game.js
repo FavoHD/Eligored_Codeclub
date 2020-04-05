@@ -17,19 +17,15 @@ function init(){
 
 
 	$.ajax({
-            type: "POST",
-            url: "getWorldId.php",
-            dataType: "json",
-            success: function(result) {
-				if(result.status == "Success") {
-					console.log(result.value);
-				} else {
-					console.log('Error: No such variable value present');
-				}
-          	},
-          	error: function() {
-				console.log("Error: Unknown Error")
-          	}
+		url : 'getWorldId.php',
+		type : 'POST',
+		dataType : 'json',
+		success : function (result) {
+		   	console.log(result['world_id'])
+		},
+		error : function () {
+		   	console.log("error");
+		}
      });
 
 

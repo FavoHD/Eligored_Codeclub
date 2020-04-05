@@ -22,12 +22,25 @@
         $world_id = $world["world_id"];
 
 		if (isset($world_id)) {
-	    	echo json_encode(new retObj('Success', $world_id));
+			$toSend = array(
+		    	'status' => 'success',
+		        'world_id' => $world_id
+			);
+
+	    	echo json_encode($toSend);
 	    } else {
-			echo json_encode(new retObj('Failure'));
+			$toSend = array(
+		    	'status' => 'fail'
+			);
+
+			echo json_encode($toSend);
 	    }
     } else {
-		echo json_encode(new retObj('Failure'));
+		$toSend = array(
+			'status' => 'fail'
+		);
+		
+		echo json_encode($toSend);
 	}
 
 
