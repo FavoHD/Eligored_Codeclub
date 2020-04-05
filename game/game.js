@@ -52,7 +52,7 @@ class Map {
     constructor() {
         this.shiftX = 0;
         this.shiftY = 0;
-		this.map;
+		this.map = null;
     }
 
     draw() {
