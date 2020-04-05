@@ -15,7 +15,26 @@ function init(){
     gameWidth = document.getElementById("canvas").width;
     gameHeight = document.getElementById("canvas").height;
 
-	is_playing = true; 
+
+	jQuery.ajax({
+            type: "POST",
+            url: "action.php?id="+id,
+            dataType: "json",
+            success: function(result){
+                   if(result.status == "Success"){
+                           console.log(result.value) // displays found value on console
+                    }
+                  else{
+                          console.log('Error: No such variable value present')
+                   }
+          },
+          error:function(){
+                console.log("Error: Unknown Error")
+          }
+     });
+
+
+	is_playing = true;
 
     map_object = [];
     map = new Map();
