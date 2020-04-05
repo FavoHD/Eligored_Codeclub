@@ -16,11 +16,11 @@ function init(){
     gameHeight = document.getElementById("canvas").height;
 
 
-	var xhr = new XMLHttpRequest();
-	xhr.open("POST", "getWorldId.php");
-	xhr.setRequestHeader("Content-Type", "application/json");
-	xhr.send();
-	xhr.onreadystatechange = function () {
+	var xhr_getWorldId = new XMLHttpRequest();
+	xhr_getWorldId.open("POST", "getWorldId.php");
+	xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
+	xhr_getWorldId.send();
+	xhr_getWorldId.onreadystatechange = function () {
    		if (xhr.readyState == 4 && xhr.status == 200) {
      		var obj = JSON.parse(xhr.responseText);
 
@@ -32,10 +32,10 @@ function init(){
 				};
 
 				var jsonString = JSON.stringify(toSend);
-				var xhr2 = new XMLHttpRequest();
-				xhr2.open("POST", "getWorldById.php");
-				xhr2.setRequestHeader("Content-Type", "application/json");
-				xhr2.send(jsonString);
+				var xhr_getWorldById = new XMLHttpRequest();
+				xhr_getWorldById.open("POST", "getWorldById.php");
+				xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
+				xhr_getWorldById.send(jsonString);
 			}
     	}
    	}
@@ -228,10 +228,10 @@ class Player extends Entity {
         };
 
         var jsonString = JSON.stringify(toSend);
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", "saveUserData.php");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.send(jsonString);
+        var xhr_saveUserData = new XMLHttpRequest();
+        xhr_saveUserData.open("POST", "saveUserData.php");
+        xhr_saveUserData.setRequestHeader("Content-Type", "application/json");
+        xhr_saveUserData.send(jsonString);
     }
 }
 
