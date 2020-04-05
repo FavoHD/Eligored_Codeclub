@@ -5,40 +5,36 @@
     "player": [
         {
             "__comment": "id, name aus Datebank",
-            "name": "Tester1",
             "id": "0",
             "xPos": "x",
             "yPos": "y",
             "inventory_slot": [
                 {
-                    "item_name": "name",    
+                    "item_name": "name",
                     "item_quantity": "quantity"
                 }
             ]
         },
         {
             "__comment": "id, name aus Datebank",
-            "name": "Tester2",
             "id": "1",
             "xPos": "x",
             "yPos": "y",
             "inventory": [
-                
+
             ]
-        }  
+        }
     ],
-    "map_objects": {
-        "tree": [
-            {
-                "xPos": "x",
-                "yPos": "y",
-                "health": "health"
-            },
-            {
-                "xPos": "x",
-                "yPos": "y",
-                "health": "health"
-            }  
-        ]
-    }
+    "map_objects": [
+        {
+            "xPos": "x",
+            "yPos": "y",
+            "health": "health"
+        },
+        {
+            "xPos": "x",
+            "yPos": "y",
+            "health": "health"
+        }
+    ]
 }

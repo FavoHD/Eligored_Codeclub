@@ -1,0 +1,28 @@
+{
+    "worldId": "1",
+    "creatorId": "3",
+    "createdAt": "2020-04-05 16:58:28",
+    "player": [
+        {
+            "__comment": "id, name aus Datebank",
+            "id": "3",
+            "xPos": "x",
+            "yPos": "y",
+            "inventory_slot": []
+        }
+    ],
+    "map_objects": [
+        {
+			"name": "TestObject",
+            "xPos": "100",
+            "yPos": "100",
+            "health": "health"
+        },
+        {
+			"name": "TestObject",
+            "xPos": "1000",
+            "yPos": "1000",
+            "health": "health"
+        }
+    ]
+}
