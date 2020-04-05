@@ -37,8 +37,6 @@
         <script type="text/javascript" src="../lib/collisionLib.min.js"></script>
         <script type="text/javascript" src="../lib/keyEventsLib.min.js"></script>
         <script type="text/javascript" src="../lib/mouseEventsLib.min.js"></script>
-
-		<script type="text/javascript" src="game.js"></script>
     </head>
     <body>
         <?php
@@ -50,13 +48,21 @@
                 echo $string;
             }
 
-			<div id='site' class='site'>
-            	<b>Name: ".$name."</b><br>
-                <b>Id: ".$id."</b><br>
-                <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
-                    Wird nicht von ihrem Browser unterstützt
-                </canvas>
-            </div>
+
+            $content = " ";
+
+            $content.= "<div id='site' class='site'>
+                            <b>Name: ".$name."</b><br>
+                            <b>Id: ".$id."</b><br>
+                            <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
+                                Wird nicht von ihrem Browser unterstützt
+                            </canvas>
+                        </div>
+                        ";
+
+            echo $content;
+
+			<script type="text/javascript" src="game.js"></script>
         ?>
     </body>
 </html>
