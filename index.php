@@ -204,7 +204,6 @@
                                                 </li>
                                                 ";
                                             }
-			echo "1";
             $content.= "                        <li><a class='nav-link' href='index.php?logout=1'>Logout</a></li>
                                             ";
                                         }else{
