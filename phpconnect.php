@@ -1,5 +1,5 @@
 <?php
-    $servername = "localhost";
+    $servername = "v12018035925062710.yourpserver.net";
     $username = "db_schulprj_user";
     $password = "20fj%iQ7";
     $database = "DB_SchulPrj";
