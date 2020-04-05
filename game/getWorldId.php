@@ -12,14 +12,25 @@
    		}
 	}
 
-	if(isset($_SESSION["id"])) {
-        $id = $_SESSION["id"];
-    }
+	if((isset($_SESSION["id"]) && ($_SESSION["id"]>0))) {
+        $user_id = $_SESSION["id"];
 
-	if (isset($a[$id])) {
-    	echo json_encode(new retObj('Success', $id));
+		$statement = $pdo->prepare("SELECT * FROM Favo_Eligored_user_world WHERE user_id = :user_id");
+        $result = $statement->execute(array("user_id" => $user_id));
+        $world = $statement->fetch();
+
+        $world_id = $world["world_id"];
+
+		if (isset($world_id)) {
+	    	echo json_encode(new retObj('Success', $world_id));
+	    } else {
+			echo json_encode(new retObj('Failure'));
+	    }
     } else {
 		echo json_encode(new retObj('Failure'));
-    }
+	}
+
+
+
 
 ?>

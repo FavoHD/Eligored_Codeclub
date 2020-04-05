@@ -16,21 +16,20 @@ function init(){
     gameHeight = document.getElementById("canvas").height;
 
 
-	jQuery.ajax({
+	$.ajax({
             type: "POST",
-            url: "action.php?id="+id,
+            url: "getWorldId.php",
             dataType: "json",
-            success: function(result){
-                   if(result.status == "Success"){
-                           console.log(result.value) // displays found value on console
-                    }
-                  else{
-                          console.log('Error: No such variable value present')
-                   }
-          },
-          error:function(){
-                console.log("Error: Unknown Error")
-          }
+            success: function(result) {
+				if(result.status == "Success") {
+					console.log(result.value);
+				} else {
+					console.log('Error: No such variable value present');
+				}
+          	},
+          	error: function() {
+				console.log("Error: Unknown Error")
+          	}
      });
 
 
