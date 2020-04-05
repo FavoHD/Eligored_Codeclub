@@ -26,7 +26,6 @@
 
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link rel="stylesheet" href="styles/game.css">
 		<link rel="stylesheet" href="../lib/hideWebhostBanner.css">
 
 
@@ -50,55 +49,17 @@
 
 
             $content = " ";
-            $site = "startMenu";
 
-            if ($site == "startMenu") {
-                if (isset($_GET["load_world"])) {
-                    $error = false;
-
-                    $world_id = $_GET["load_world"];
-                    if ($world_id == -1) {
-                        $world_id = $_POST["world_id"];
-                    }
-
-                    $site = "game";
-                }
-
-                $content.= "<link rel='stylesheet' href='styles/startMenu.css'>
-                            <div id='site' class='site'>
-                                <b>Name: ".$name."</b><br>
-                                <b>Id: ".$id."</b><br>
-
-                                <form action='?load_world=-1' method='post'>
-                                    <input type='text' name='world_id' placeholder='World Id'>
-
-                                    <button type='submit'>Load World</button>
-                                </form>
-                            ";
-                if ($id != 0) {
-                    $sql = "SELECT world_id, world_name FROM user_world WHERE user_id = $id";
-                    foreach ($pdo->query($sql) as $row) {
-                        $content.= "<form action='?load_world=".$row['world_id']."' method='post'>
-                                        <button type='submit'>Load World: ".$row['world_name']."</button>
-                                    </form>
-                                    ";
-                    }
-                }
-
-                $content.= "</div>
-                            ";
-            } else if ($site == "game") {
-                $content.= "<link rel='stylesheet' href='styles/game.css'>
-                            <script type='text/javascript' src='game.js'></script>
-                            <div id='site' class='site'>
-                                <b>Name: ".$name."</b><br>
-                                <b>Id: ".$id."</b><br>
-                                <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
-                                    Wird nicht von ihrem Browser unterstützt
-                                </canvas>
-                            </div>
-                            ";
-            }
+            $content.= "<link rel='stylesheet' href='styles/game.css'>
+                        <script type='text/javascript' src='game.js'></script>
+                        <div id='site' class='site'>
+                            <b>Name: ".$name."</b><br>
+                            <b>Id: ".$id."</b><br>
+                            <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
+                                Wird nicht von ihrem Browser unterstützt
+                            </canvas>
+                        </div>
+                        ";
 
             echo $content;
         ?>
