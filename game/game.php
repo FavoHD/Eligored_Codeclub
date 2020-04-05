@@ -26,6 +26,7 @@
 
         <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<link rel="stylesheet" href="styles/game.css">
 		<link rel="stylesheet" href="../lib/hideWebhostBanner.css">
 
 
@@ -36,6 +37,8 @@
         <script type="text/javascript" src="../lib/collisionLib.min.js"></script>
         <script type="text/javascript" src="../lib/keyEventsLib.min.js"></script>
         <script type="text/javascript" src="../lib/mouseEventsLib.min.js"></script>
+
+		<script type="text/javascript" src="game.js"></script>
     </head>
     <body>
         <?php
@@ -50,9 +53,7 @@
 
             $content = " ";
 
-            $content.= "<link rel='stylesheet' href='styles/game.css'>
-                        <script type='text/javascript' src='game.js'></script>
-                        <div id='site' class='site'>
+            $content.= "<div id='site' class='site'>
                             <b>Name: ".$name."</b><br>
                             <b>Id: ".$id."</b><br>
                             <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
