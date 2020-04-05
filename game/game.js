@@ -16,18 +16,10 @@ function init(){
     gameHeight = document.getElementById("canvas").height;
 
 
-	$.ajax({
-		url : 'getWorldId.php',
-		type : 'POST',
-		dataType : 'json',
-		success : function (result) {
-		   	console.log(result['world_id'])
-		},
-		error : function () {
-		   	console.log("error");
-		}
-     });
-
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "getWorldId.php");
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send();
 
 	is_playing = true;
 
@@ -215,7 +207,7 @@ class Player extends Entity {
         };
 
         const jsonString = JSON.stringify(toSend);
-        const xhr = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         xhr.open("POST", "saveUserData.php");
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.send(jsonString);
