@@ -15,7 +15,6 @@ function init(){
     gameHeight = document.getElementById("canvas").height;
 
 	map = new Map();
-
 	map.getWorldId();
 
 	is_playing = true;
@@ -53,7 +52,7 @@ class Map {
         this.shiftX = 0;
         this.shiftY = 0;
 		this.world_id;
-		this.map;
+		this.map = null;
 
 		this.updateMapIntervall = setInterval(() => {
             this.update();
@@ -99,12 +98,14 @@ class Map {
 				var obj = JSON.parse(xhr.responseText);
 
 				if ((obj.status == "success") && (obj.world)) {
-					this.map = obj.world;
+					this.map = JSON.parse(obj.world).map_objects;
 				} else {
 					console.log("error");
 				}
 	    	}
 	   	}
+
+		console.log(this.map);
 	}
 }
 
