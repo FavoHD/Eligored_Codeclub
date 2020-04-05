@@ -16,7 +16,7 @@
             ]
         },
         {
-            "__comment": "id, name aus Datebank",
+            "__comment": "id aus Datebank",
             "id": "1",
             "xPos": "x",
             "yPos": "y",
