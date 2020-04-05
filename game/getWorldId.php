@@ -43,7 +43,4 @@
 		echo json_encode($toSend);
 	}
 
-
-
-
 ?>

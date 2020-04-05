@@ -9,7 +9,7 @@ window.onscroll = function() {
 //Scrollen deaktivieren ENDE
 
 var is_playing;
-
+var world_id;
 
 function init(){
     gameWidth = document.getElementById("canvas").width;
@@ -20,18 +20,32 @@ function init(){
 	xhr.open("POST", "getWorldId.php");
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send();
-
 	xhr.onreadystatechange = function () {
-		console.log(xhr.readyState+" "+xhr.status);
    		if (xhr.readyState == 4 && xhr.status == 200) {
      		var obj = JSON.parse(xhr.responseText);
 
 			if (obj.status == "success") {
-				const world_id = parseInt(obj.world_id);
+				world_id = parseInt(obj.world_id);
 				console.log(world_id);
 			}
     	}
    	}
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", "getWorldById.php");
+	xhr.setRequestHeader("Content-Type", "application/json");
+	xhr.send(JSON.stringify({world_id : world_id}));
+	xhr.onreadystatechange = function () {
+   		if (xhr.readyState == 4 && xhr.status == 200) {
+     		var obj = JSON.parse(xhr.responseText);
+
+			if (obj.status == "success") {
+				var world = parseInt(obj.world);
+				console.log(world);
+			}
+    	}
+   	}
+
 
 	is_playing = true;
 
