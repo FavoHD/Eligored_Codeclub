@@ -27,11 +27,13 @@
     ],
     "map_objects": [
         {
+			"name": "name",
             "xPos": "x",
             "yPos": "y",
             "health": "health"
         },
         {
+			"name": "name",
             "xPos": "x",
             "yPos": "y",
             "health": "health"
