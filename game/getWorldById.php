@@ -2,35 +2,31 @@
     session_start();
     include "../phpconnect.php";
 
+	/*class retObj {
+		var $status;
+		var $value;
+
+		function __construct($st, $v=null){
+			$this->status = $st;
+			$this->value = $v;
+		}
+	}*/
+
 	$requestPayload = file_get_contents('php://input');
     $object = json_decode($requestPayload, true);
-
-    var_dump($object);
-
+	var_dump($object);
+	/*
 	if ((isset($_SESSION["id"]) && ($_SESSION["id"]>0))) {
         $user_id = $_SESSION["id"];
         $world_id = $object["world_id"];
 
-		$world_json = file_get_contents("worlds/"+$world_id+".json");
+		$world_file = file_get_contents("worlds/".$world_id.".json");
 
-		$world_object = json_decode($world_json);
-		echo $world_id;
 
-/*
-		class retObj {
-	    	var $status;
-	    	var $value;
-
-	    	function __construct($st, $v=null){
-	      		$this->status = $st;
-	      		$this->value = $v;
-	   		}
-		}
-
-		if (isset($world_object)) {
+		if (isset($world_file)) {
 			$toSend = array(
 		    	'status' => 'success',
-		        'world' => $world_object
+		        'world' => file_get_contents("worlds/".$world_id.".json")
 			);
 
 	    	echo json_encode($toSend);
@@ -47,7 +43,6 @@
 		);
 
 		echo json_encode($toSend);
-*/
-    }
+    }*/
 
 ?>

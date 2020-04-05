@@ -33,7 +33,8 @@ function init(){
 
 
 
-	var toSend = {
+	console.log(world_id);
+	const world_id = {
 		world_id : world_id,
 	};
 
@@ -42,16 +43,7 @@ function init(){
 	xhr.open("POST", "getWorldById.php");
 	xhr.setRequestHeader("Content-Type", "application/json");
 	xhr.send(jsonString);
-	xhr.onreadystatechange = function () {
-   		if (xhr.readyState == 4 && xhr.status == 200) {
-     		var obj = JSON.parse(xhr.responseText);
 
-			if (obj.status == "success") {
-				var world = obj.world;
-				console.log(world);
-			}
-    	}
-   	}
 
 
 	is_playing = true;
