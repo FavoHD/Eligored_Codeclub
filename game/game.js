@@ -22,10 +22,10 @@ function init(){
 	xhr_getWorldId.send();
 	xhr_getWorldId.onreadystatechange = function () {
    		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
-     		var obj = JSON.parse(xhr_getWorldId.responseText);
+     		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
 
-			if (obj.status == "success") {
-				world_id = obj.world_id;
+			if (world_id_obj.status == "success") {
+				world_id = world_id_obj.world_id;
 
 				const toSend = {
 					world_id : world_id,
@@ -37,10 +37,10 @@ function init(){
 				xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
 				xhr_getWorldById.send(jsonString);
 
-				var obj = JSON.parse(xhr_getWorldById.responseText);
+				var world_obj = JSON.parse(xhr_getWorldById.responseText);
 
-				if (obj.status == "success") {
-					world = obj.world;
+				if (world_obj.status == "success") {
+					world = world_obj.world;
 					console.log(world);
 				}
 			}
