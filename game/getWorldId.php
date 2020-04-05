@@ -21,6 +21,8 @@
 
         $world_id = $world["world_id"];
 
+
+
 		if (isset($world_id)) {
 			$toSend = array(
 		    	'status' => 'success',
@@ -39,7 +41,7 @@
 		$toSend = array(
 			'status' => 'fail'
 		);
-		
+
 		echo json_encode($toSend);
 	}
 

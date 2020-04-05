@@ -22,9 +22,11 @@ function init(){
 	xhr.send();
 
 	xhr.onreadystatechange = function () {
+		console.log(xhr.readyState+" "+xhr.status);
    		if (xhr.readyState == 4 && xhr.status == 200) {
      		var obj = JSON.parse(xhr.responseText);
-			if (!obj.status == "fail") {
+
+			if (obj.status == "success") {
 				const world_id = parseInt(obj.world_id);
 				console.log(world_id);
 			}
