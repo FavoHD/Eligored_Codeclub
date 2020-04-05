@@ -4,7 +4,7 @@
     "createdAt": "2020-04-05 16:58:28",
     "player": [
         {
-            "__comment": "id, name aus Datebank",
+            "__comment": "id aus Datebank",
             "id": "3",
             "xPos": "x",
             "yPos": "y",
