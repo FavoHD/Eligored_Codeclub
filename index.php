@@ -57,9 +57,9 @@
 					$result = $statement->execute(array("email" => $email));
 					$user = $statement->fetch();
 				} catch (Exception $e) {
-					$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+					$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 			        $error = $e->getMessage();
-			        $error = "phpconnect.php: ".$error;
+			        $error = "index.php: ".$error;
 			        fwrite($error_log, $error);
 			        fclose($error_log);
 				}
@@ -75,9 +75,9 @@
 						$statement = $pdo->prepare("INSERT INTO Favo_Eligored_users (email, email_verification_hash, password) VALUES (:email, :email_verification_hash, :password)");    //Set Email, Email_Verification_Hash, Password_Hash
 						$result = $statement->execute(array("email" => $email, "email_verification_hash" => $email_verification_hash, "password" => $password_hash));
 					} catch (Exception $e) {
-						$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+						$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 				        $error = $e->getMessage();
-				        $error = "phpconnect.php: ".$error;
+				        $error = "index.php: ".$error;
 				        fwrite($error_log, $error);
 				        fclose($error_log);
 					}
@@ -88,9 +88,9 @@
 						$user = $statement->fetch();
 						$new_name = "User".$user["id"];
 					} catch (Exception $e) {
-						$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+						$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 				        $error = $e->getMessage();
-				        $error = "phpconnect.php: ".$error;
+				        $error = "index.php: ".$error;
 				        fwrite($error_log, $error);
 				        fclose($error_log);
 					}
@@ -99,9 +99,9 @@
 						$statement = $pdo->prepare("UPDATE Favo_Eligored_users SET name = :name WHERE email = :email");      //Set Name
 						$result = $statement->execute(array("name" => $new_name, "email" => $email));
 					} catch (Exception $e) {
-						$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+						$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 				        $error = $e->getMessage();
-				        $error = "phpconnect.php: ".$error;
+				        $error = "index.php: ".$error;
 				        fwrite($error_log, $error);
 				        fclose($error_log);
 					}
@@ -110,9 +110,9 @@
 						$statement = $pdo->prepare("INSERT INTO Favo_Eligored_user_role (user_id, role_id) VALUES (:user_id, :role_id)");     //Set Default Role for User
 						$result = $statement->execute(array("user_id" => $user["id"], "role_id" => 1));
 					} catch (Exception $e) {
-						$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+						$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 				        $error = $e->getMessage();
-				        $error = "phpconnect.php: ".$error;
+				        $error = "index.php: ".$error;
 				        fwrite($error_log, $error);
 				        fclose($error_log);
 					}
@@ -152,9 +152,9 @@
 	                $result = $statement->execute(array("email" => $email));
 	                $user = $statement->fetch();
 				} catch (Exception $e) {
-					$error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+					$error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
 			        $error = $e->getMessage();
-			        $error = "phpconnect.php: ".$error;
+			        $error = "index.php: ".$error;
 			        fwrite($error_log, $error);
 			        fclose($error_log);
 				}

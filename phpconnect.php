@@ -9,7 +9,7 @@
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		echo "<script>console.log('Database connected');</script>";
     } catch(PDOException $e) {
-        $error_log = fopen("/log.txt", "w") or die("Unable to open file!");
+        $error_log = fopen("/Eligored/log.txt", "w") or die("Unable to open file!");
         $error = $e->getMessage();
         $error = "phpconnect.php: ".$error;
         fwrite($error_log, $error);
