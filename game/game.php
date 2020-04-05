@@ -50,19 +50,13 @@
                 echo $string;
             }
 
-
-            $content = " ";
-
-            $content.= "<div id='site' class='site'>
-                            <b>Name: ".$name."</b><br>
-                            <b>Id: ".$id."</b><br>
-                            <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
-                                Wird nicht von ihrem Browser unterstützt
-                            </canvas>
-                        </div>
-                        ";
-
-            echo $content;
+			<div id='site' class='site'>
+            	<b>Name: ".$name."</b><br>
+                <b>Id: ".$id."</b><br>
+                <canvas id='canvas' width='1600' height='900' class='center' overflow='hidden' oncontextmenu='return false;'>
+                    Wird nicht von ihrem Browser unterstützt
+                </canvas>
+            </div>
         ?>
     </body>
 </html>
