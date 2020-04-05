@@ -8,13 +8,15 @@ window.onscroll = function() {
 };
 //Scrollen deaktivieren ENDE
 
+var is_playing;
 
 
-    
 function init(){
     gameWidth = document.getElementById("canvas").width;
     gameHeight = document.getElementById("canvas").height;
-
+
+	is_playing = true; 
+
     map_object = [];
     map = new Map();
     map_object[map_object.length] = new Player(755, 380, 90, 140, 1, null);       //(xPos, yPos, width, height, speed, texture)
@@ -22,16 +24,16 @@ function init(){
     map_object[map_object.length] = new TestObject(1000,1000,100,100);      //(xPos, yPos, width, height)
 
     fps=60;
-    
+
     canvas = document.getElementById('canvas');
     ctx = canvas.getContext('2d');
-    
+
     window.addEventListener('resize', resize);
-    
-    setInterval(function() { 
+
+    setInterval(function() {
         render();
     }, 1000/fps);
-} 
+}
 
 function resize() {
     gameWidth = document.getElementById("canvas").width;
@@ -40,7 +42,7 @@ function resize() {
 
 function render() {
     ctx.clearRect(0, 0, gameWidth, gameHeight);
-    
+
     map.draw();
 }
 
@@ -49,11 +51,11 @@ class Map {
         this.shiftX = 0;
         this.shiftY = 0;
     }
-    
+
     draw() {
         for(var i=0; i<map_object.length; i++) {
             map_object[i].draw();
-        } 
+        }
     }
 }
 
@@ -65,18 +67,18 @@ class MapObject {
         this.height = height;
         this.texture = texture;
     }
-    
+
     draw() {
         if((this.texture === null)||(!this.texture)){
             ctx.fillStyle = "#000";
             ctx.fillRect(this.xPos+map.shiftX, this.yPos+map.shiftY, this.width, this.height);
         }
-        
+
         ctx.font = "30px Arial";
         ctx.fillText("X:"+this.xPos+" ,Y:"+this.yPos, this.xPos+map.shiftX, this.yPos+map.shiftY-10);
     }
-    
-    
+
+
 }
 
 class Entity extends MapObject {
@@ -88,28 +90,28 @@ class Entity extends MapObject {
 class Player extends Entity {
     constructor(xPos, yPos, width, height, speed, texture) {
         super(xPos, yPos, width, height, texture);
-        
+
         this.speed = speed;
         this.is_colided;
         this.inventory = new Inventory();
-        
+
         this.forward_key = 87;
         this.left_key = 65;
         this.backwards_key = 83;
         this.right_key = 68;
-        
-        this.eventChecker = setInterval(() => { 
+
+        this.eventChecker = setInterval(() => {
             this.on_w_pressed();
             this.on_a_pressed();
             this.on_s_pressed();
             this.on_d_pressed();
         }, 1);
-        
-        this.saveUserDataIntervall = setInterval(() => { 
+
+        this.saveUserDataIntervall = setInterval(() => {
             this.saveUserData();
         }, 100);
     }
-    
+
     //Events
     on_w_pressed() {
         if((keyboard.getKey(this.forward_key) === true)&&(is_playing === true)) {
@@ -121,7 +123,7 @@ class Player extends Entity {
             this.moveForward();
         }
     }
-    
+
     on_a_pressed() {
         if((keyboard.getKey(this.left_key) === true)&&(is_playing === true)) {
             for(var i=0; i<map_object.length; i++) {
@@ -132,7 +134,7 @@ class Player extends Entity {
             this.moveLeft();
         }
     }
-    
+
     on_s_pressed() {
         if((keyboard.getKey(this.backwards_key) === true)&&(is_playing === true)) {
             for(var i=0; i<map_object.length; i++) {
@@ -143,7 +145,7 @@ class Player extends Entity {
             this.moveBackwards();
         }
     }
-    
+
     on_d_pressed() {
         if((keyboard.getKey(this.right_key) === true)&&(is_playing === true)) {
             for(var i=0; i<map_object.length; i++) {
@@ -154,7 +156,7 @@ class Player extends Entity {
             this.moveRight();
         }
     }
-    
+
     on_colision() {
         for(var i=0; i<map_object.length; i++) {
             if(isColided(this, map_object[i]) === true) {
@@ -166,38 +168,38 @@ class Player extends Entity {
         //console.log("no colision");
         this.is_colided = false;
     }
-    
-    
+
+
     //Methoden
     moveForward() {
         this.yPos -= this.speed;
         map.shiftY += this.speed;
     }
-    
+
     moveLeft() {
         this.xPos -= this.speed;
         map.shiftX += this.speed;
     }
-    
+
     moveBackwards() {
         this.yPos += this.speed;
         map.shiftY -= this.speed;
     }
-    
+
     moveRight() {
         this.xPos += this.speed;
         map.shiftX -= this.speed;
     }
-    
+
     saveUserData() {
         var xPos = this.xPos;
         var yPos = this.yPos;
-        
+
         const toSend = {
             xPos : xPos,
             yPos: yPos,
         };
-        
+
         const jsonString = JSON.stringify(toSend);
         const xhr = new XMLHttpRequest();
         xhr.open("POST", "saveUserData.php");
@@ -208,26 +210,26 @@ class Player extends Entity {
 
 class Inventory {
     constructor() {
-        
+
     }
-    
+
     draw() {
-        
+
     }
 }
 
 class DestroyableObsticles extends MapObject {
     constructor(xPos, yPos, width, height, texture) {
         super(xPos, yPos, width, height, texture);
-        
-        this.eventChecker = setInterval(() => { 
+
+        this.eventChecker = setInterval(() => {
             this.on_click();
         }, 1);
     }
-    
+
     //Events
     on_click() {
-        
+
     }
 }
 
