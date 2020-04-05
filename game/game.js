@@ -67,16 +67,16 @@ class Map {
     }
 
 	getWorldId() {
-		var xhr_getWorldId = new XMLHttpRequest();
-		xhr_getWorldId.open("POST", "getWorldId.php");
-		xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
-		xhr_getWorldId.send();
-		xhr_getWorldId.onreadystatechange = () => {
-	   		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
-	     		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", "getWorldId.php");
+		xhr.setRequestHeader("Content-Type", "application/json");
+		xhr.send();
+		xhr.onreadystatechange = () => {
+	   		if (xhr.readyState == 4 && xhr.status == 200) {
+	     		var obj = JSON.parse(xhr.responseText);
 
-				if ((world_id_obj.status) == "success" && (world_id_obj.world_id)) {
-					this.world_id = world_id_obj.world_id;
+				if ((obj.status) == "success" && (obj.world_id)) {
+					this.world_id = obj.world_id;
 				} else {
 					console.log("error");
 				}
