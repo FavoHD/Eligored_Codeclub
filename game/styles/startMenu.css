@@ -1,0 +1,77 @@
+/*
+ * Globals
+ */
+
+/* Tags */
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+
+/*
+ * Whole Site
+ */
+html,
+body {
+    height: 100%;
+    background-color: #00c600;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.site {
+    max-width: 42em;
+    width: 100%;
+    height: 100%;
+    background-color: #00C600;
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+
+/*
+ * Header
+ */
+.header {
+    margin-bottom: 2rem;
+}
+
+.brand {
+    margin-bottom: 0;
+}
+
+.nav-link {
+    font-weight: 700;
+    padding: .3rem 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+
+/*
+ * Main
+ */
+.main {
+    padding: 0 2rem;
+}
+
+
+/*
+ * Footer
+ */
+.footer {
+    color: rgba(255, 255, 255, 0.5);
+}

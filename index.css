@@ -1,0 +1,158 @@
+/*
+ * Globals
+ */
+
+/* Tags */
+a,
+a:focus,
+a:hover {
+    color: #fff;
+}
+
+
+/*
+ * Whole Site
+ */
+html,
+body {
+    height: 100%;
+    background-color: #00c600;
+}
+
+body {
+    display: -ms-flexbox;
+    display: flex;
+    color: #fff;
+    text-shadow: 0 .05rem .1rem rgba(0, 0, 0, 0.5);
+    box-shadow: inset 0 0 5rem rgba(0, 0, 0, 0.5);
+}
+
+.site {
+    max-width: 42em;
+}
+
+
+/*
+ * Header
+ */
+.header {
+    margin-bottom: 2rem;
+}
+
+.brand {
+    margin-bottom: 0;
+}
+
+.nav-link {
+    font-weight: 700;
+    padding: .3rem 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: transparent;
+    border-bottom: .25rem solid transparent;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+    border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+
+/*
+ * Main
+ */
+.main {
+    padding: 0 2rem;
+}
+
+
+/*
+ * Footer
+ */
+.footer {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+
+/*
+ * Sign-In Form
+ */
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #f5f5f5;
+    height: 15rem;
+    position: absolute;
+}
+.form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+.form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/*
+ * Sign-Up Form
+ */
+.form-signup {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #f5f5f5;
+    height: 19rem;
+    position: absolute;
+}
+.form-signup .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.form-signup .form-control:focus {
+    z-index: 2;
+}
+.form-signup input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-signup input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+
+#transparentBackground {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);    
+}

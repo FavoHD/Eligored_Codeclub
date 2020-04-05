@@ -1,0 +1,33 @@
+RewriteBase /
+
+# HTID:12480432: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+php_value display_errors 1
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:12480432:
+
+Options +FollowSymLinks -Indexes
+# Turn mod_rewrite on
+RewriteEngine On
+
+ErrorDocument 403 /error/403errorpage.html
+ErrorDocument 404 /error/404errorpage.html
+ErrorDocument 405 /error/405errorpage.html
+ErrorDocument 408 /error/408errorpage.html
+ErrorDocument 500 /error/500errorpage.html
+ErrorDocument 502 /error/502errorpage.html
+ErrorDocument 504 /error/504errorpage.html
+
+<IfModule mod_rewrite.c>
+	# To externally redirect /bla/bla.php to /bla/bla/
+    #RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.php [NC]
+    #RewriteRule ^ %1 [L,R]
+    
+    # To internally redirect /bla/bla/ to /bla/bla.php
+    #RewriteCond %{DOCUMENT_ROOT}/$1.php -f
+    #RewriteRule ^(.*?)/?$ $1.php [L]
+    
+    RewriteRule ^login/?$ /index.php?login_form=1
+    
+    #RewriteRule ^catalog/?$ /catalog.php
+    #RewriteRule ^item/([0-9]+)/?$ /item.php?id=$1
+    #RewriteRule ^checkout/([0-9]+)/?$ /checkout.php?id=$1
+</IfModule>
