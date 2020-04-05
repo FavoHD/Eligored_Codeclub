@@ -9,50 +9,18 @@ window.onscroll = function() {
 //Scrollen deaktivieren ENDE
 
 var is_playing;
-var world;
 
 function init(){
     gameWidth = document.getElementById("canvas").width;
     gameHeight = document.getElementById("canvas").height;
 
+	map = new Map();
 
-	var xhr_getWorldId = new XMLHttpRequest();
-	xhr_getWorldId.open("POST", "getWorldId.php");
-	xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
-	xhr_getWorldId.send();
-	xhr_getWorldId.onreadystatechange = function () {
-   		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
-     		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
-
-			if (world_id_obj.status == "success") {
-				var world_id = world_id_obj.world_id;
-				const toSend = {
-					world_id : world_id,
-				};
-				var jsonString = JSON.stringify(toSend);
-
-				var xhr_getWorldById = new XMLHttpRequest();
-				xhr_getWorldById.open("POST", "getWorldById.php");
-				xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
-				xhr_getWorldById.send(jsonString);
-				if (xhr_getWorldById.readyState == 4 && xhr_getWorldById.status == 200) {
-					var world_obj = JSON.parse(xhr_getWorldById.responseText);
-
-					if (world_obj.status == "success") {
-						world = world_obj.world;
-						console.log(world);
-					}
-				}
-			}
-    	}
-   	}
-
-
+	map.update();
 
 	is_playing = true;
 
     map_object = [];
-    map = new Map();
     map_object[map_object.length] = new Player(755, 380, 90, 140, 1, null);       //(xPos, yPos, width, height, speed, texture)
     map_object[map_object.length] = new TestObject(100,100,500,50);     //(xPos, yPos, width, height)
     map_object[map_object.length] = new TestObject(1000,1000,100,100);      //(xPos, yPos, width, height)
@@ -84,6 +52,7 @@ class Map {
     constructor() {
         this.shiftX = 0;
         this.shiftY = 0;
+		this.map;
     }
 
     draw() {
@@ -91,6 +60,45 @@ class Map {
             map_object[i].draw();
         }
     }
+
+	update() {
+		var xhr_getWorldId = new XMLHttpRequest();
+		xhr_getWorldId.open("POST", "getWorldId.php");
+		xhr_getWorldId.setRequestHeader("Content-Type", "application/json");
+		xhr_getWorldId.send();
+		xhr_getWorldId.onreadystatechange = function () {
+	   		if (xhr_getWorldId.readyState == 4 && xhr_getWorldId.status == 200) {
+	     		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
+
+				if ((world_id_obj.status) == "success" && (world_id_obj.world_id)) {
+					var world_id = world_id_obj.world_id;
+					const toSend = {
+						world_id : world_id,
+					};
+					var jsonString = JSON.stringify(toSend);
+
+					var xhr_getWorldById = new XMLHttpRequest();
+					xhr_getWorldById.open("POST", "getWorldById.php");
+					xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
+					xhr_getWorldById.send(jsonString);
+					xhr_getWorldById.onreadystatechange = function () {
+						if (xhr_getWorldById.readyState == 4 && xhr_getWorldById.status == 200) {
+							var world_obj = JSON.parse(xhr_getWorldById.responseText);
+
+							if ((world_obj.status == "success") && (world_obj.world)) {
+								this.map = world_obj.world;
+								console.log(this.map);
+							} else {
+								console.log("error");
+							}
+						}
+					}
+				} else {
+					console.log("error");
+				}
+	    	}
+	   	}
+	}
 }
 
 class MapObject {
@@ -110,9 +118,7 @@ class MapObject {
 
         ctx.font = "30px Arial";
         ctx.fillText("X:"+this.xPos+" ,Y:"+this.yPos, this.xPos+map.shiftX, this.yPos+map.shiftY-10);
-    }
-
-
+	}
 }
 
 class Entity extends MapObject {
