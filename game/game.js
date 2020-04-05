@@ -9,7 +9,7 @@ window.onscroll = function() {
 //Scrollen deaktivieren ENDE
 
 var is_playing;
-var world_id;
+var world;
 
 function init(){
     gameWidth = document.getElementById("canvas").width;
@@ -25,13 +25,12 @@ function init(){
      		var world_id_obj = JSON.parse(xhr_getWorldId.responseText);
 
 			if (world_id_obj.status == "success") {
-				world_id = world_id_obj.world_id;
-
+				var world_id = world_id_obj.world_id;
 				const toSend = {
 					world_id : world_id,
 				};
-
 				var jsonString = JSON.stringify(toSend);
+
 				var xhr_getWorldById = new XMLHttpRequest();
 				xhr_getWorldById.open("POST", "getWorldById.php");
 				xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
