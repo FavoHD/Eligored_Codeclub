@@ -227,7 +227,7 @@
 
                             <footer role='contentinfo' class='footer mt-auto'>
                                 <div class='inner'>
-                                    <p>©2020 Eligored All Rights Reserved, by <a href='https://twitter.com/Favo_Gaming'>@Favo</a>  ||  <a href='https://github.com/FavoHD/Eligored_Codeclub'>GitHub Rep</a></p>
+                                    <p>©2020 Eligored All Rights Reserved, by <a href='https://twitter.com/Favo_Gaming'>@Favo</a>  ||  <a href='https://github.com/FavoHD/Eligored_Codeclub'>GitHub Rep</a>  ||  <a href='https://discord.gg/xqg2e3v'>Discord Server</a></p>
                                 </div>
                             </footer>
                         </div>
