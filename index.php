@@ -24,7 +24,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Eligored</title>
 
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
         <link rel="stylesheet" href="lib/hideWebhostBanner.css">
@@ -44,7 +43,6 @@
 
                 echo $string;
             }
-
 
             if(isset($_GET["register"])) {
                 $error = false;
@@ -229,7 +227,7 @@
 
                             <footer role='contentinfo' class='footer mt-auto'>
                                 <div class='inner'>
-                                    <p>©2020 Eligored All Rights Reserved, by <a href='https://twitter.com/Favo_Gaming'>@Favo</a>  ||  <a href='https://github.com/FavoHD/Eligored_Codeclub'>GitHub Rep</a> </p>
+                                    <p>©2020 Eligored All Rights Reserved, by <a href='https://twitter.com/Favo_Gaming'>@Favo</a>  ||  <a href='https://github.com/FavoHD/Eligored_Codeclub'>GitHub Rep</a></p>
                                 </div>
                             </footer>
                         </div>
@@ -271,7 +269,7 @@
                             ";
             }
 
-            echo $content;
+ 			echo $content;
         ?>
     </body>
 </html>
