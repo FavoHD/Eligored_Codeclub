@@ -36,6 +36,12 @@ function init(){
 				xhr_getWorldById.open("POST", "getWorldById.php");
 				xhr_getWorldById.setRequestHeader("Content-Type", "application/json");
 				xhr_getWorldById.send(jsonString);
+
+				var obj = JSON.parse(xhr_getWorldById.responseText);
+
+				if (obj.status == "success") {
+					world = obj.world;
+				}
 			}
     	}
    	}
