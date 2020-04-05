@@ -17,7 +17,6 @@ function init(){
 	map = new Map();
 
 	map.getWorldId();
-	map.update();
 
 	is_playing = true;
 
@@ -55,6 +54,10 @@ class Map {
         this.shiftY = 0;
 		this.world_id;
 		this.map;
+
+		this.updateMapIntervall = setInterval(() => {
+            this.update();
+        }, 500);
     }
 
     draw() {
@@ -102,7 +105,6 @@ class Map {
 				}
 	    	}
 	   	}
-		console.log(this.map);
 	}
 }
 
