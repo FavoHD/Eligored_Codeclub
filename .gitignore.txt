@@ -1,1 +1,1 @@
-phpconnect.php
+conf.json
